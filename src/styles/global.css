@@ -1,0 +1,169 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* Hack Club's brand font, Phantom Sans */
+@font-face {
+  font-family: 'Phantom Sans';
+  src: url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Regular.woff')
+      format('woff'),
+    url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Regular.woff2')
+      format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Phantom Sans';
+  src: url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Italic.woff')
+      format('woff'),
+    url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Italic.woff2')
+      format('woff2');
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Phantom Sans';
+  src: url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Bold.woff')
+      format('woff'),
+    url('https://assets.hackclub.com/fonts/Phantom_Sans_0.7/Bold.woff2')
+      format('woff2');
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* More fonts! */
+@font-face {
+  font-family: 'Atkinson Hyperlegible';
+  src: url('/assets/fonts/Atkinson_Hyperlegible.woff2')
+      format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'IBM Plex Sans';
+  src: url('/assets/fonts/IBM_Plex_Sans.woff2')
+      format('woff2');
+  font-weight: 100 700;
+}
+
+@font-face {
+  font-family: 'Lexend';
+  src: url('/assets/fonts/Lexend.woff2')
+      format('woff2');
+  font-weight: 100 900;
+}
+
+@font-face {
+  font-family: 'Lora';
+  src: url('/assets/fonts/Lora.woff2')
+      format('woff2');
+  font-weight: 400 700;
+}
+
+@font-face {
+  font-family: 'Fairplay Display';
+  src: url('/assets/fonts/Playfair_Display.woff2')
+      format('woff2');
+  font-weight: 400 900;
+}
+
+@font-face {
+  font-family: 'VT323';
+  src: url('/assets/fonts/VT323.woff2')
+      format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --color-crust: #0f0000;
+  --color-accent: #a7ef5f;
+  --color-accent-header: #060e1f;
+  --color-accent-orange: #faaa40;
+  --color-black-accent: #354152;
+  --color-text-accent: #dbe1f0;
+  --color-muted: #ffc9c9;
+  --color-background: #fff5ea;
+  --color-heading: #3f1717;
+  --color-text: #3f1717;
+  --color-input: #3f3939;
+
+  /* buttons (btn) me thinks */
+  --color-btn-blue: #90d4ff;
+  --color-btn-blue-hover: #80ceff;
+  --color-btn-text: #26370e;
+
+  --font-instrument: "Instrument Sans", system-ui, sans-serif;
+  --font-heading: var(--font-instrument);
+  --font-atkinson: "Atkinson Hyperlegible", system-ui, sans-serif;
+  --font-plex-sans: "IBM Plex Sans", system-ui, sans-serif;
+  --font-lexend: "Lexend", system-ui, sans-serif;
+  --font-lora: "Lora", "Times New Roman", serif;
+  --font-fairplay: "Playfair Display", system-ui, sans-serif;
+  --font-vt323: "VT323", system-ui, monospace;
+  --font-phantom: "Phantom Sans", system-ui, sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-background);
+}
+
+.prose {
+  font-size: 20px;
+  color: var(--color-text);
+}
+
+.prose a {
+  color: var(--color-accent);
+}
+
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  color: var(--color-heading);
+}
+
+/* tailwind doesn't have this attribute lol */
+/* what better than to jank-ily make our own? */
+.writing-lr {
+  writing-mode: horizontal-tb;
+}
+
+@media (width >= 48rem) {
+  .writing-lr {
+    writing-mode: sideways-lr;
+  }
+}
+
+.line {
+  @apply absolute left-0 block h-[3px] w-full rounded-[9px]
+         transition-all duration-200 ease-in-out;
+}
+
+#mobile-menu:checked ~ #menu-hamburger span {
+  background-color: black;
+}
+
+/* #mobile-menu:checked = box clicked, we love css */
+#mobile-menu:checked ~ #menu-hamburger span:nth-child(1),
+#mobile-menu:checked ~ #menu-hamburger span:nth-child(4) {
+  top: 6px;
+  width: 0;
+  left: 50%;
+}
+
+#mobile-menu:checked ~ #menu-hamburger span:nth-child(2) {
+  transform: rotate(45deg);
+}
+
+#mobile-menu:checked ~ #menu-hamburger span:nth-child(3) {
+  transform: rotate(-45deg);
+}

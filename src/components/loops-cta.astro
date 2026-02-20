@@ -1,0 +1,28 @@
+---
+import { LOOPS_TOKEN } from "astro:env/server";
+import { getAudienceCount } from "@util";
+---
+
+<aside class="bg-accent-header text-text-accent font-atkinson p-6 xl:ml-6 h-fit">
+  <h2 class="text-3xl xl:text-xl mb-4">
+    We write an email newsletter too!
+  </h2>
+  <p class="mb-8">
+    Join {getAudienceCount} strangers and subscribe to The Hacker Press to be notified of cool projects, hackathons, events, and more at Hack Club. It's a pretty cool newsletter!
+  </p>
+  <label for="signup-email">
+    Your Sacred Email:
+    <input
+      type="email"
+      placeholder="dinobox@hackclub.com"
+      id="signup-email"
+      class="basis-2/3 flex-[2] w-full p-2 mb-4 bg-[#404859]"
+    />
+  </label>
+  <button class="bg-orange-400 w-full sm:w-fit cursor-pointer text-crust px-4 py-2 rounded-full">
+    Sign up
+  </button>
+  <p class="text-xs font-atkinson mt-2">
+    By providing us with your email, you consent to being emailed roughly once/two weeks for this newsletter. You can unsubscribe anytime :D.
+  </p>
+</aside>
